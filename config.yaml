@@ -1,0 +1,34 @@
+region: us-west-2
+
+function_name: send_event_to_stackstorm
+handler: handler.send_event_to_stackstorm
+description: Lambda function which sends an event to StackStorm Webhook API endpoint
+runtime: python3.6
+# role: lambda_basic_execution
+
+# if access key and secret are left blank, boto will use the credentials
+# defined in the [default] section of ~/.aws/credentials.
+aws_access_key_id:
+aws_secret_access_key:
+
+dist_directory: dist
+timeout: 10
+memory_size: 512
+# concurrency: 500
+
+# Experimental Environment variables
+environment_variables:
+  LOG_LEVEL: DEBUG
+  # StackStorm HTTP request timeout in seconds
+  REQUEST_TIMEOUT: "5"
+  # False to disable verification of StackStorm HTTPS API certificate
+  VERIFY_SSL_CERT: "true"
+  # Put your StackStorm webhook URL here
+  # For example: "https://example.com/api/v1/webhooks/eventbridge
+  STACKSTORM_API_URL: "https://<example.com>/api/v1/webhooks/eventbridge"
+  # Put your StackStorm API key here
+  STACKSTORM_API_KEY: "put API key here"
+
+# Build options
+build:
+  source_directories: lib
