@@ -9,7 +9,7 @@ verify_ssl = true
 requests = "==2.22.0"
 boto3 = "==1.9.187"
 botocore = "==1.12.187"
-certifi = "==2019.6.16"
+certifi = "==2022.12.7"
 chardet = "==3.0.4"
 click = "==7.0"
 docutils = "==0.14"
